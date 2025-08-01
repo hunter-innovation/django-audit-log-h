@@ -68,36 +68,36 @@ class CreatingSessionKeyField(LastSessionKeyField):
 
 # South stuff:
 
-rules = [
-    (
-        (LastUserField, CreatingUserField),
-        [],
-        {
-            "to": [
-                "rel.to",
-                {"default": getattr(settings, "AUTH_USER_MODEL", "auth.User")},
-            ],
-            "null": ["null", {"default": True}],
-        },
-    )
-]
+# rules = [
+#     (
+#         (LastUserField, CreatingUserField),
+#         [],
+#         {
+#             "to": [
+#                 "rel.to",
+#                 {"default": getattr(settings, "AUTH_USER_MODEL", "auth.User")},
+#             ],
+#             "null": ["null", {"default": True}],
+#         },
+#     )
+# ]
 
-try:
-    from south.modelsinspector import add_introspection_rules
+# try:
+#     from south.modelsinspector import add_introspection_rules
 
-    # Add the rules for the `LastUserField`
-    add_introspection_rules(
-        rules, [r"^audit_log\.models\.fields\.LastUserField"]
-    )
-    add_introspection_rules(
-        rules, [r"^audit_log\.models\.fields\.CreatingUserField"]
-    )
-    add_introspection_rules(
-        [], [r"^audit_log\.models\.fields\.LastSessionKeyField"]
-    )
-    add_introspection_rules(
-        [], [r"^audit_log\.models\.fields\.CreatingSessionKeyField"]
-    )
-except ImportError as e:
-    print(str(e))
-    pass
+#     # Add the rules for the `LastUserField`
+#     add_introspection_rules(
+#         rules, [r"^audit_log\.models\.fields\.LastUserField"]
+#     )
+#     add_introspection_rules(
+#         rules, [r"^audit_log\.models\.fields\.CreatingUserField"]
+#     )
+#     add_introspection_rules(
+#         [], [r"^audit_log\.models\.fields\.LastSessionKeyField"]
+#     )
+#     add_introspection_rules(
+#         [], [r"^audit_log\.models\.fields\.CreatingSessionKeyField"]
+#     )
+# except ImportError as e:
+#     print(str(e))
+#     pass
