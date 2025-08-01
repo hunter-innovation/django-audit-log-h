@@ -98,5 +98,6 @@ try:
     add_introspection_rules(
         [], [r"^audit_log\.models\.fields\.CreatingSessionKeyField"]
     )
-except ImportError:
+except ImportError as e:
+    print(str(e))
     pass
