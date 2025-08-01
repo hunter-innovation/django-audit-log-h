@@ -87,16 +87,16 @@ try:
 
     # Add the rules for the `LastUserField`
     add_introspection_rules(
-        rules, ["^audit_log\.models\.fields\.LastUserField"]
+        rules, [r"^audit_log\.models\.fields\.LastUserField"]
     )
     add_introspection_rules(
-        rules, ["^audit_log\.models\.fields\.CreatingUserField"]
+        rules, [r"^audit_log\.models\.fields\.CreatingUserField"]
     )
     add_introspection_rules(
-        [], ["^audit_log\.models\.fields\.LastSessionKeyField"]
+        [], [r"^audit_log\.models\.fields\.LastSessionKeyField"]
     )
     add_introspection_rules(
-        [], ["^audit_log\.models\.fields\.CreatingSessionKeyField"]
+        [], [r"^audit_log\.models\.fields\.CreatingSessionKeyField"]
     )
 except ImportError:
     pass
